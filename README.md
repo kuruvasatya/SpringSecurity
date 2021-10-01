@@ -57,3 +57,6 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 }
 
 ```
+
+## Authentication process
+![](authentication.png)
