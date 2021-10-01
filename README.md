@@ -3,6 +3,9 @@
 ## Dependency
 - spring-boot-starter-security
 
+## Annotations
+- @EnableWebSecurity
+
 ## Spring Security Behaviour
 - Adds mandatory authentication for URL
 - Adds login form
@@ -13,3 +16,8 @@
 spring.security.user.name = name
 spring.security.user.password = password
 ```
+
+## Configuring the work done by AuthenticationManager
+- The work done by the authentication manager is written in class called *WebSecurityConfigureAdapter* (present in SpringSecurityApp) which has method called *configure(AuthenticationMangaerBuilder)*
+- Need to extend this class and override that method for customising the authentication
+- look into second project for more details
