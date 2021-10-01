@@ -23,21 +23,37 @@ spring.security.user.password = password
 - look into second project for more details
 ```java
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
+public class AppSecurity extends WebSecurityConfigurerAdapter{
 	
+	// for Authentication purpose
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
-				.withUser("Satya")
+				.withUser("user")
 				.password("user")
-				.roles("USER");
-		
+				.roles("USER")
+				.and()
+				.withUser("admin")
+				.password("admin")
+				.roles("ADMIN");
+				
 	}
 	
+	// for Authorization Purpose
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+			.antMatchers("/admin").hasRole("ADMIN")
+			.antMatchers("/user").hasAnyRole("USER", "ADMIN")
+			.antMatchers("/").permitAll().and().formLogin();
+	}
+	
+	// for password encoding
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
-	
+
 }
+
 ```
