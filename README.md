@@ -2,6 +2,7 @@
 
 ## Dependency
 - spring-boot-starter-security
+- jdbc api => for db connection
 
 ## Annotations
 - @EnableWebSecurity
