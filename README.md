@@ -89,6 +89,7 @@ create unique index ix_auth_username on authorities (username,authority);
 ## LDAP configuration
 - spring.ldap.embedded.port=8389
 - sprind.ldap.embeded.ldif=classpath:ldap-data.ldif
+- spring.ldap.embeded.base-dn=dc=springframework,dc=org
 
 ## Sample ldif file
 - source: https://spring.io/guides/gs/authenticating-ldap/
