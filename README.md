@@ -61,6 +61,11 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 ## Authentication process
 ![](authentication.png)
 
+- Authentication manager is used to manage different types of authentiation providers ex LDAP, OAuth
+- Authentication managet gets Authentication Object with credentials and if authentication is success then Authentication managet sends Authentication object with principal
+- Authentication provider has supports() method which tells which kind of authentication it provides
+- Authentication provider takes the request and gives it to UserDetailsService which may connect to any type like text file or db to fetch user details.
+
 ## default Schema created
 ```sql
 create table users(
