@@ -54,10 +54,15 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 	public PasswordEncoder getPasswordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
-
+	
 }
 ```
-
+## How to find logged In User
+```java
+public User getLoggedInUser(Principal principal) {
+	return repository.findUserByUserName(principal.getName());
+}
+```
 ## Authentication process
 ![](authentication.png)
 
