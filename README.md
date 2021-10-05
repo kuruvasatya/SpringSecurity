@@ -60,7 +60,7 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 ## How to find logged In User
 ```java
 public User getLoggedInUser(Principal principal) {
-	return repository.findUserByUserName(principal.getName());
+	return repository.findUserByUserName(principal.getName()).get();
 }
 ```
 ## Authentication process
